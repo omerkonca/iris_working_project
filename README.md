@@ -1,76 +1,50 @@
-# YMT5270 - Vize Projesi (Makine Öğrenmesi Uygulaması)
+# YMT5270 - Ara Sınav Projesi: Öğrenci Performans Verisi
 
-Bu proje, YMT5270 "Yenilikçi Makine Öğrenme Ortamları" dersi kapsamında, Orange Data Mining aracı kullanılarak gerçekleştirilmiştir. Amacımız, hazır bir veri seti üzerinde sınıflandırma modelleri kullanarak en iyi sonucu veren modeli belirlemektir.
+## Proje Tanımı
+Bu proje, YMT5270 - Yenilikçi Makine Öğrenme Ortamları dersi kapsamında, öğrencilerin sınavlardaki performanslarını tahmin etmek için **Orange Data Mining** platformu kullanılarak yapılan bir sınıflandırma problemidir. Projede, **"Students Performance in Exams"** adlı Kaggle veri seti kullanılmıştır. Bu veri seti, öğrencilerin sınav performanslarını etkileyebilecek faktörleri içermektedir ve sınıflandırma analizi yapılmaktadır.
 
----
+## Veri Seti
+- **Veri Seti Adı**: Students Performance in Exams
+- **Kaynak**: [Kaggle - Students Performance in Exams](https://www.kaggle.com/datasets/spscientist/students-performance-in-exams)
+- **Lisans**: Kaggle veri setinin lisans koşullarına tabidir.
+- **Veri Seti Özellikleri**:
+    - 5 özellik (özellikler: gender, race/ethnicity, parental level of education, lunch, test preparation course).
+    - Hedef değişken: exam scores (sınav sonuçları).
+    - 100 örnek içermektedir.
 
-## 📁 Kullanılan Araçlar ve Ortamlar
+## Keşifsel Veri Analizi (EDA)
+Projede keşifsel veri analizi (EDA) adımlarında aşağıdaki işlemler gerçekleştirilmiştir:
+- Veri setinin temel istatistikleri hesaplanmıştır.
+- Eksik veriler kontrol edilip, herhangi bir eksiklik bulunmamıştır.
+- Aykırı değerler tespit edilmiştir ve uygun görselleştirmeler yapılmıştır (örneğin, histogramlar, kutu grafikleri).
+- Öznitelikler arasındaki ilişkiler görselleştirilmiştir (scatter plots, box plots).
 
-- **Orange Data Mining** v3.x
-- Görsel (kod yazmadan) makine öğrenmesi
-- Windows 10 işletim sistemi
-- Veri seti: `iris.tab` (Orange ile birlikte gelen örnek veri seti)
+## Makine Öğrenmesi Modeli
+Proje kapsamında, sınıflandırma problemine yönelik **Logistic Regression** modeli kullanılmıştır. Modelin eğitimi için aşağıdaki adımlar takip edilmiştir:
+- Veri, eğitim ve test setlerine bölünmüştür (%70 eğitim, %30 test).
+- **Logistic Regression** modeli, eğitim verisi üzerinde eğitilmiştir.
+- Modelin başarımı **Test & Score** widget'ı kullanılarak değerlendirilmiştir.
 
----
+### Model Performansı
+Modelin doğruluğu ve performansı aşağıdaki metriklerle değerlendirilmiştir:
+- **Accuracy**: Modelin doğruluk oranı.
+- **F1-Score**: Dengesiz sınıflandırmalarda performans.
+- **Precision** ve **Recall**: Modelin pozitif sınıflandırmalarını değerlendiren metrikler.
 
-## 📊 Kullanılan Veri Seti: Iris
+## Kullanılan Araçlar
+- **Orange Data Mining**: Görsel programlama platformu, veri analizi ve makine öğrenmesi için kullanıldı.
+- **Python**: Veri ön işleme ve analiz işlemleri için kullanıldı.
+- **Matplotlib** ve **Seaborn**: Veri görselleştirme için kullanıldı.
 
-Bu veri seti, 3 farklı iris çiçeği türünün (setosa, versicolor, virginica) sınıflandırılmasını içermektedir. Her örnek şu özellikleri içerir:
+## Proje Yapısı
+- **orange_project.ows**: Orange iş akışı dosyası.
+- **Students Performance in Exams.csv**: Veri setinin CSV formatındaki dosyası.
+- **ReadMe_YourProject.md**: Proje açıklama dosyası.
 
-- `sepal length`
-- `sepal width`
-- `petal length`
-- `petal width`
-- `class` (hedef değişken – çiçek türü)
+## Proje Teslimi
+Bu proje, YMT5270 ara sınav projesi kapsamında tamamlanmıştır. Proje, GitHub üzerinden teslim edilecektir.
 
----
+## Yazar
+- **Ad**: [Ömer Faruk KONCA]
+- **Email**: [omerkonca01@gmail.com]
 
-## 🔧 Uygulama Adımları
-
-1. Orange açıldı ve boş bir proje oluşturuldu.
-2. `File` bileşeni ile `iris.tab` veri seti yüklendi.
-3. `Data Table` ile veri gözlemlendi.
-4. `Select Columns` bileşeni ile `class` sütunu hedef (target) olarak belirlendi.
-5. 3 farklı model eklendi:
-   - Logistic Regression
-   - Random Forest
-   - Naive Bayes
-6. Bu modeller, `Test & Score` bileşeni ile karşılaştırıldı.
-7. Sonuçlar gözlemlendi ve başarı oranları analiz edildi.
-
----
-
-## 🧪 Elde Edilen Sonuçlar (örnek veriler)
-
-| Model               | Accuracy (CA) | AUC    | F1 Score |
-|---------------------|---------------|--------|----------|
-| Logistic Regression | 0.96          | 0.99   | 0.96     |
-| Random Forest       | 0.97          | 1.00   | 0.97     |
-| Naive Bayes         | 0.95          | 0.98   | 0.95     |
-
-✅ **En iyi sonuç veren model:** `Random Forest`
-
----
-
-## 🖼️ Ekran Görüntüleri
-
-`img/` klasörü içinde tüm adımların ekran görüntüleri mevcuttur:
-
-- Veri seti yükleme
-- Model bağlantıları
-- Test & Score ekranı
-- Confusion Matrix çıktısı
-
----
-
-## 📁 Dosya Yapısı
-
-
----
-
-## 👨‍💻 Hazırlayan
-
-- **Ad Soyad**: Ömer Faruk Konca  
-- **Numara**: [Numaranız buraya]  
-- **Ders**: YMT5270 – Yenilikçi Makine Öğrenme Ortamları  
-- **Danışman**: Dr. Öğr. Üyesi Ferhat Uçar  
